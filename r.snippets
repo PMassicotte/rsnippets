@@ -1,13 +1,30 @@
+snippet main
+	# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+	# FILE:         main.R
+	#
+	# AUTHOR:       Philippe Massicotte
+	#
+	# DESCRIPTION:  ${1:description}
+	# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-snippet S3
-	${1:funcname} <- function(${2:args}, ...) UseMethod("${1:funcname}")
+	# Setup -------------------------------------------------------------------
 
-snippet exported
-	#' ${1:funcname}
-	#'
-	#' @param ${2:param} description
-	#'
-	#' @export
-	${1:funcname} <- function(${2:param}) {
-	
-	}
+	library(tidyverse)
+	library(ggpmthemes)
+
+	# Set default ggplot2 font size and font family
+	# devtools::install_github("PMassicotte/ggpmthemes")
+	theme_set(theme_poppins(base_size = 10))
+
+	${2:code}
+
+snippet header
+	# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+	# AUTHOR:       Philippe Massicotte
+	#
+	# DESCRIPTION:  ${1:description}
+	# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+	rm(list = ls())
+
+	${1:code}
